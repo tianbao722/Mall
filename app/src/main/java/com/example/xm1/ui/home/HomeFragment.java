@@ -18,6 +18,7 @@ import com.example.xm1.R;
 import com.example.xm1.adapter.HomeMiaoShaAdapter;
 import com.example.xm1.adapter.HomeNewAdapter;
 import com.example.xm1.adapter.HomePinPaiAdapter;
+import com.example.xm1.adapter.HomeRenQiAdapter;
 import com.example.xm1.base.BaseFragment;
 import com.example.xm1.bean.HomeBean;
 import com.example.xm1.interfaces.home.IHome;
@@ -94,6 +95,7 @@ public class HomeFragment extends BaseFragment<IHome.RecommendPersenter> impleme
         delegateAdapter.addAdapter(new HomePinPaiAdapter(getActivity(), linearLayoutHelper, brandListBeans));
         delegateAdapter.addAdapter(new HomeMiaoShaAdapter(getActivity(), linearLayoutHelper, hotProductListBeans));
         delegateAdapter.addAdapter(new HomeNewAdapter(getActivity(), linearLayoutHelper, newProductListBeans));
+        delegateAdapter.addAdapter(new HomeRenQiAdapter(getActivity(),linearLayoutHelper,newProductListBeans));
     }
 
     private void setVf() {
