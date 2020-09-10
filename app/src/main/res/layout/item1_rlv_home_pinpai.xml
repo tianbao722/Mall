@@ -54,8 +54,8 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginTop="10dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/u88"
+            android:src="@mipmap/u88"
+            android:background="#bbbbbb"
             app:layout_constraintTop_toBottomOf="@id/tv_jiage" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

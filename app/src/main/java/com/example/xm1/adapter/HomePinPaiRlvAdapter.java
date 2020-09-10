@@ -1,6 +1,7 @@
 package com.example.xm1.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -29,13 +30,18 @@ public class HomePinPaiRlvAdapter extends BaseAdapter {
 
     @Override
     protected void bindData(BaseViewHolder viewHolder, Object o) {
-        HomeBean.DataBean.NewProductListBean bean = (HomeBean.DataBean.NewProductListBean) o;
+        HomeBean.DataBean.BrandListBean bean = (HomeBean.DataBean.BrandListBean) o;
         TextView title = (TextView) viewHolder.getViewById(R.id.tv_title_item1);
         TextView jiage = (TextView) viewHolder.getViewById(R.id.tv_jiage);
         ImageView img = (ImageView) viewHolder.getViewById(R.id.iv_img_item1_home);
-        String name = bean.getProductCategoryName();
-        title.setText(name);
-        jiage.setText(bean.getOriginalPrice()+"起");
-        Glide.with(context).load(bean.getPic()).into(img);
+        title.setText(bean.getName());
+        jiage.setText("299起");
+        String bigPic = bean.getBigPic();
+        if (TextUtils.isEmpty(bigPic)) {
+            Glide.with(context).load(R.mipmap.u88).into(img);
+        } else {
+            img.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            Glide.with(context).load(bigPic).into(img);
+        }
     }
 }

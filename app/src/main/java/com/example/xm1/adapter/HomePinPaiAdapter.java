@@ -23,9 +23,9 @@ import butterknife.ButterKnife;
 public class HomePinPaiAdapter extends DelegateAdapter.Adapter<RecyclerView.ViewHolder> {
     private Context context;
     private LayoutHelper layoutHelper;
-    private List<HomeBean.DataBean.NewProductListBean> listBeans;
+    private List<HomeBean.DataBean.BrandListBean> listBeans;
 
-    public HomePinPaiAdapter(Context context, LayoutHelper layoutHelper, List<HomeBean.DataBean.NewProductListBean> listBeans) {
+    public HomePinPaiAdapter(Context context, LayoutHelper layoutHelper, List<HomeBean.DataBean.BrandListBean> listBeans) {
         this.context = context;
         this.layoutHelper = layoutHelper;
         this.listBeans = listBeans;

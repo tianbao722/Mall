@@ -16,6 +16,7 @@ import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
 import com.bumptech.glide.Glide;
 import com.example.xm1.R;
 import com.example.xm1.adapter.HomeMiaoShaAdapter;
+import com.example.xm1.adapter.HomeNewAdapter;
 import com.example.xm1.adapter.HomePinPaiAdapter;
 import com.example.xm1.base.BaseFragment;
 import com.example.xm1.bean.HomeBean;
@@ -51,9 +52,10 @@ public class HomeFragment extends BaseFragment<IHome.RecommendPersenter> impleme
     View vRlv;
     @BindView(R.id.rlv_home)
     RecyclerView rlvHome;
-    private ArrayList<HomeBean.DataBean.NewProductListBean> brandListBeans;
+    private ArrayList<HomeBean.DataBean.BrandListBean> brandListBeans;
     private DelegateAdapter delegateAdapter;
     private ArrayList<HomeBean.DataBean.HotProductListBean> hotProductListBeans;
+    private ArrayList<HomeBean.DataBean.NewProductListBean> newProductListBeans;
 
     @Override
     protected IHome.RecommendPersenter initPresenter() {
@@ -74,6 +76,7 @@ public class HomeFragment extends BaseFragment<IHome.RecommendPersenter> impleme
     private void setRlv() {
         brandListBeans = new ArrayList<>();
         hotProductListBeans = new ArrayList<>();
+        newProductListBeans = new ArrayList<>();
         RecyclerView.RecycledViewPool recycledViewPool = new RecyclerView.RecycledViewPool();
         recycledViewPool.setMaxRecycledViews(0, 10);
         rlvHome.setRecycledViewPool(recycledViewPool);
@@ -89,7 +92,8 @@ public class HomeFragment extends BaseFragment<IHome.RecommendPersenter> impleme
         rlvHome.setAdapter(delegateAdapter);
         LinearLayoutHelper linearLayoutHelper = new LinearLayoutHelper(1);
         delegateAdapter.addAdapter(new HomePinPaiAdapter(getActivity(), linearLayoutHelper, brandListBeans));
-        delegateAdapter.addAdapter(new HomeMiaoShaAdapter(getActivity(),linearLayoutHelper,hotProductListBeans));
+        delegateAdapter.addAdapter(new HomeMiaoShaAdapter(getActivity(), linearLayoutHelper, hotProductListBeans));
+        delegateAdapter.addAdapter(new HomeNewAdapter(getActivity(), linearLayoutHelper, newProductListBeans));
     }
 
     private void setVf() {
@@ -123,10 +127,12 @@ public class HomeFragment extends BaseFragment<IHome.RecommendPersenter> impleme
     @Override
     public void getHomeResult(HomeBean result) {
         if (result.getCode() == 200) {
-            List<HomeBean.DataBean.NewProductListBean> brandList = result.getData().getNewProductList();
+            List<HomeBean.DataBean.BrandListBean> brandList = result.getData().getBrandList();
             List<HomeBean.DataBean.HotProductListBean> hotProductList = result.getData().getHotProductList();
+            List<HomeBean.DataBean.NewProductListBean> newProductList = result.getData().getNewProductList();
             brandListBeans.addAll(brandList);
             hotProductListBeans.addAll(hotProductList);
+            newProductListBeans.addAll(newProductList);
             delegateAdapter.notifyDataSetChanged();
             ArrayList<String> images = new ArrayList<>();
             ArrayList<String> titles = new ArrayList<>();
