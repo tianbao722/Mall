@@ -56,7 +56,7 @@ public class HomeFragment extends BaseFragment<IHome.RecommendPersenter> impleme
     View vRlv;
     @BindView(R.id.rlv_home)
     RecyclerView rlvHome;
-    private ArrayList<HomeBean.DataBean.BrandListBean> brandListBeans;
+    private ArrayList<HomeBean.DataBean.NewProductListBean> brandListBeans;
     private DelegateAdapter delegateAdapter;
 
     @Override
@@ -92,6 +92,7 @@ public class HomeFragment extends BaseFragment<IHome.RecommendPersenter> impleme
         rlvHome.setAdapter(delegateAdapter);
         LinearLayoutHelper linearLayoutHelper = new LinearLayoutHelper(1);
         delegateAdapter.addAdapter(new HomePinPaiAdapter(getActivity(), linearLayoutHelper, brandListBeans));
+//        delegateAdapter.addAdapter(new );
     }
 
     private void setVf() {
@@ -125,7 +126,7 @@ public class HomeFragment extends BaseFragment<IHome.RecommendPersenter> impleme
     @Override
     public void getHomeResult(HomeBean result) {
         if (result.getCode() == 200) {
-            List<HomeBean.DataBean.BrandListBean> brandList = result.getData().getBrandList();
+            List<HomeBean.DataBean.NewProductListBean> brandList = result.getData().getNewProductList();
             brandListBeans.addAll(brandList);
             delegateAdapter.notifyDataSetChanged();
             ArrayList<String> images = new ArrayList<>();

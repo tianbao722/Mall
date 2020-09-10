@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.GlideException;
 import com.example.xm1.R;
 import com.example.xm1.base.BaseAdapter;
 import com.example.xm1.bean.HomeBean;
@@ -28,13 +29,13 @@ public class HomePinPaiRlvAdapter extends BaseAdapter {
 
     @Override
     protected void bindData(BaseViewHolder viewHolder, Object o) {
-        HomeBean.DataBean.BrandListBean bean = (HomeBean.DataBean.BrandListBean) o;
+        HomeBean.DataBean.NewProductListBean bean = (HomeBean.DataBean.NewProductListBean) o;
         TextView title = (TextView) viewHolder.getViewById(R.id.tv_title_item1);
         TextView jiage = (TextView) viewHolder.getViewById(R.id.tv_jiage);
         ImageView img = (ImageView) viewHolder.getViewById(R.id.iv_img_item1_home);
-        String name = bean.getName();
+        String name = bean.getProductCategoryName();
         title.setText(name);
-        jiage.setText("3999.99起");
-        Glide.with(context).load(bean.getBigPic()).into(img);
+        jiage.setText(bean.getOriginalPrice()+"起");
+        Glide.with(context).load(bean.getPic()).into(img);
     }
 }
