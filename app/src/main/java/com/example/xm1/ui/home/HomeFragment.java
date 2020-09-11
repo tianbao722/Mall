@@ -19,6 +19,7 @@ import com.example.xm1.adapter.HomeMiaoShaAdapter;
 import com.example.xm1.adapter.HomeNewAdapter;
 import com.example.xm1.adapter.HomePinPaiAdapter;
 import com.example.xm1.adapter.HomeRenQiAdapter;
+import com.example.xm1.adapter.HomeZhuanTiAdapter;
 import com.example.xm1.base.BaseFragment;
 import com.example.xm1.bean.HomeBean;
 import com.example.xm1.interfaces.home.IHome;
@@ -57,6 +58,7 @@ public class HomeFragment extends BaseFragment<IHome.RecommendPersenter> impleme
     private DelegateAdapter delegateAdapter;
     private ArrayList<HomeBean.DataBean.HotProductListBean> hotProductListBeans;
     private ArrayList<HomeBean.DataBean.NewProductListBean> newProductListBeans;
+    private ArrayList<HomeBean.DataBean.NewProductListBean> newProductListBeans1;
 
     @Override
     protected IHome.RecommendPersenter initPresenter() {
@@ -78,6 +80,7 @@ public class HomeFragment extends BaseFragment<IHome.RecommendPersenter> impleme
         brandListBeans = new ArrayList<>();
         hotProductListBeans = new ArrayList<>();
         newProductListBeans = new ArrayList<>();
+        newProductListBeans1 = new ArrayList<>();
         RecyclerView.RecycledViewPool recycledViewPool = new RecyclerView.RecycledViewPool();
         recycledViewPool.setMaxRecycledViews(0, 10);
         rlvHome.setRecycledViewPool(recycledViewPool);
@@ -96,6 +99,7 @@ public class HomeFragment extends BaseFragment<IHome.RecommendPersenter> impleme
         delegateAdapter.addAdapter(new HomeMiaoShaAdapter(getActivity(), linearLayoutHelper, hotProductListBeans));
         delegateAdapter.addAdapter(new HomeNewAdapter(getActivity(), linearLayoutHelper, newProductListBeans));
         delegateAdapter.addAdapter(new HomeRenQiAdapter(getActivity(),linearLayoutHelper,newProductListBeans));
+        delegateAdapter.addAdapter(new HomeZhuanTiAdapter(getActivity(),linearLayoutHelper,newProductListBeans1));
     }
 
     private void setVf() {
@@ -132,6 +136,10 @@ public class HomeFragment extends BaseFragment<IHome.RecommendPersenter> impleme
             List<HomeBean.DataBean.BrandListBean> brandList = result.getData().getBrandList();
             List<HomeBean.DataBean.HotProductListBean> hotProductList = result.getData().getHotProductList();
             List<HomeBean.DataBean.NewProductListBean> newProductList = result.getData().getNewProductList();
+            for (int i = 0; i < newProductList.size(); i++) {
+                HomeBean.DataBean.NewProductListBean bean = newProductList.get(i);
+                newProductListBeans1.add(bean);
+            }
             brandListBeans.addAll(brandList);
             hotProductListBeans.addAll(hotProductList);
             newProductListBeans.addAll(newProductList);

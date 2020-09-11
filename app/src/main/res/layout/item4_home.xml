@@ -47,6 +47,11 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/v_item4" />
-
-
+    <View
+        android:id="@+id/v_rlv"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_v"
+        app:layout_constraintTop_toBottomOf="@id/rlv4_home" />
 </androidx.constraintlayout.widget.ConstraintLayout>

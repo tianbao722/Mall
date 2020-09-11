@@ -37,7 +37,7 @@ public class HomeRenQiRlvAdapter extends BaseAdapter {
         Glide.with(context).load(bean.getPic()).into(img);
         title.setText(bean.getName());
         jieshao.setText(bean.getSubTitle());
-        jiage.setText("¥"+bean.getOriginalPrice());
-        xuanze.setText(bean.getPromotionType()+"色可选");
+        jiage.setText("¥" + bean.getOriginalPrice());
+        xuanze.setText(bean.getPromotionType() + "色可选");
     }
 }
