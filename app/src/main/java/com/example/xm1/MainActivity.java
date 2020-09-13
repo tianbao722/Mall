@@ -66,10 +66,10 @@ public class MainActivity extends AppCompatActivity {
         classifyFragment = new ClassifyFragment();
         specialFragment = new SpecialFragment();
         myFragment = new MyFragment();
-        transaction.add(R.id.fl, homeFragment);
-        transaction.add(R.id.fl, classifyFragment);
-        transaction.add(R.id.fl, specialFragment);
-        transaction.add(R.id.fl, myFragment);
+        transaction.add(R.id.fl, homeFragment);//首页
+        transaction.add(R.id.fl, classifyFragment);//分类
+        transaction.add(R.id.fl, specialFragment);//专题
+        transaction.add(R.id.fl, myFragment);//我的
         transaction.show(homeFragment);
         transaction.hide(classifyFragment);
         transaction.hide(specialFragment);

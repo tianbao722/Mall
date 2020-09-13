@@ -100,4 +100,5 @@ dependencies {
     implementation('com.alibaba.android:vlayout:1.2.6@aar') {
         transitive = true
     }
+    implementation 'q.rorbin:VerticalTabLayout:1.2.5'//垂直Tablayout
 }
