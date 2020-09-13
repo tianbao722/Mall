@@ -41,7 +41,7 @@ public class HomeZhuanTiAdapter extends DelegateAdapter.Adapter<RecyclerView.Vie
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.item5_home, null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.item5_home, parent,false);
         ViewHolder viewHolder = new ViewHolder(inflate);
         return viewHolder;
     }
