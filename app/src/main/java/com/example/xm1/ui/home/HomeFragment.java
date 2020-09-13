@@ -15,6 +15,7 @@ import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
 import com.bumptech.glide.Glide;
 import com.example.xm1.R;
+import com.example.xm1.adapter.HomeCaiNiAdapter;
 import com.example.xm1.adapter.HomeMiaoShaAdapter;
 import com.example.xm1.adapter.HomeNewAdapter;
 import com.example.xm1.adapter.HomePinPaiAdapter;
@@ -100,6 +101,7 @@ public class HomeFragment extends BaseFragment<IHome.RecommendPersenter> impleme
         delegateAdapter.addAdapter(new HomeNewAdapter(getActivity(), linearLayoutHelper, newProductListBeans));
         delegateAdapter.addAdapter(new HomeRenQiAdapter(getActivity(),linearLayoutHelper,newProductListBeans));
         delegateAdapter.addAdapter(new HomeZhuanTiAdapter(getActivity(),linearLayoutHelper,newProductListBeans1));
+        delegateAdapter.addAdapter(new HomeCaiNiAdapter(getActivity(),linearLayoutHelper,newProductListBeans));
     }
 
     private void setVf() {
