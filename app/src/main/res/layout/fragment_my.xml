@@ -276,9 +276,10 @@
     <View
         android:id="@+id/v_my"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_0.1"
+        android:layout_height="0.1dp"
         android:layout_marginTop="@dimen/dp_5"
         android:background="#bbbbbb"
         app:layout_constraintTop_toBottomOf="@id/ll_daohang" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

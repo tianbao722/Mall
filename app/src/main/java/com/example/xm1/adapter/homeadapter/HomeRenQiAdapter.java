@@ -1,6 +1,5 @@
-package com.example.xm1.adapter;
+package com.example.xm1.adapter.homeadapter;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
